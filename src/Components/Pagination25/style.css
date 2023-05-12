@@ -1,0 +1,28 @@
+.main_section{
+    height: 70vh;
+}
+.parent_page_number {
+    display: flex;
+    color: rgb(11, 18, 18);
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+}
+
+.page_number {
+    border: 1px solid black;
+    padding: 5px 5px;
+    width: 15px;
+    background-color: rgb(55, 69, 69);
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+
+}
+#button{
+    padding: 11px 5px;
+    border: 2px solid black;
+    border-radius:50%;
+    width: 50PX;
+    gap: 12px;
+}

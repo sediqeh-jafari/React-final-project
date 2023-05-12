@@ -1,0 +1,12 @@
+.names_of_genres{
+    border: 2px solid black;
+    
+}
+.parent_of_genrs{
+    width: 100%;
+    background-color:rgb(169, 162, 162);
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}

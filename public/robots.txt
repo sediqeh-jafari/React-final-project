@@ -1,3 +1,155 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+////////////////////
+import './style.css';
+import { useState, useEffect } from "react";
+import enahncedFetch from "../../Service/Http";
+import Main from '../Pagination25'
+import Header from '../Header'
+
+function Main2() {
+    const [Data, setData] = useState([]);
+    const [number, setNumber] = useState(1);
+    const [Isloading, setIsloading] = useState(false);
+    const [HasError, setHaserror] = useState(false);
+    const [Name, setName] = useState('');
+
+
+    const Personol_Information = ` https://moviesapi.ir/api/v1/movies?q=${Name}&page=${number}`
+    const Genres = `https://moviesapi.ir/api/v1/genres`
+
+
+    useEffect(() => {
+        const fetchrequest = async () => {
+            try {
+                setIsloading(true)
+                const response = await enahncedFetch('Get', Personol_Information, Option)
+                setData(response.data)
+            } catch {
+                setHaserror(true)
+                setIsloading(false)
+            } finally {
+                setIsloading(false)
+            }
+        }
+        fetchrequest()
+    }, [Personol_Information]);
+
+
+
+
+
+    // const resultSearch = Data.filter((item) => item.title.toLowerCase().startsWith(Name.toLowerCase()));
+    const render_list_of_movies = () => {
+        if (HasError) {
+            return <p>errored</p>
+        }
+        if (Isloading) {
+            return <p className='isloading'>Isloading...</p>
+        }
+
+        return (
+            Data.map((data) => {
+                return <div className='data_movies_card' key={data.id}>
+
+                    <p>number:{data.id}</p>
+                    <p>name : {data.title}</p>
+                    <p>country is:{data.country}</p>
+
+                </div>
+
+
+
+            })
+        )
+
+
+
+    } 
+
+
+    function handleChange(e){
+        setName(e.target.value)
+        console.log(Name);
+        if(e.target.value.length===0){
+
+            const fetchrequest = async () => {
+                try {
+                    setIsloading(true)
+                    const response = await enahncedFetch('Get', Genres, Option)
+                    setData(response)
+                    console.log(Data);
+                } catch {
+                    setHaserror(true)
+                    setIsloading(false)
+                } finally {
+                    setIsloading(false)
+                     if(Data){
+                return<div className='data_movies_card' key={Data.id}>
+
+                <p>number:{Data.id}</p>
+                <p>name : {Data.name}</p>
+                <p>country is:{Data.country}</p>
+
+            </div>
+            }
+                }
+               
+            }
+            fetchrequest()
+           
+          
+         
+        }
+    }
+    return (
+        <>
+            <Header title={Name} newtitle={setName} />
+            <div className='parent'>
+                <input onChange={handleChange} className='serchquery' />
+
+                <div className='data_movies'>
+                    {render_list_of_movies()}
+                </div>
+
+
+            </div>
+            <Main Number={number} NewNumber={setNumber} />
+
+        </>
+    )
+}
+export default Main2
+
+
+data /////////////
+email
+: 
+"sediqejafari2040@gmail.com"
+name
+: 
+"nilofar"
+password
+: 
+"amnsmb09876"
+[[Prototype]]
+: 
+Object
+
+
+token
+
+
+access_token
+: 
+"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQ3ZmZjZWYwMDIyNjM5ZDc2YTFiZWEzMDA5MjZhMjMxN2Q3OTc0YzRmZjk5NDI2ZmMyYTFmMzk2ZTQ5ZTNmNTM5OWUxZjcxNGYzNWFhMmNmIn0.eyJhdWQiOiI0IiwianRpIjoiZDdmZmNlZjAwMjI2MzlkNzZhMWJlYTMwMDkyNmEyMzE3ZDc5NzRjNGZmOTk0MjZmYzJhMWYzOTZlNDllM2Y1Mzk5ZTFmNzE0ZjM1YWEyY2YiLCJpYXQiOjE2ODM3ODI4NzIsIm5iZiI6MTY4Mzc4Mjg3MiwiZXhwIjoxNjgzNzgzMTcyLCJzdWIiOiIxNDU2Iiwic2NvcGVzIjpbXX0.jlHDQYii20MDiiQKz4qlWDBblaP5EYqRfojnwQkmcRl1KA2kSydrYxwTuZAMF8jKUWGkKYf0L0rSEdAs0aqB-zgoFsP4Ny7Cs6JoLu16T_Glrpoe7IdUPh8u8Ks53DPO-bS7Vj7cNIChV53onDrxOnqRno-f-PR3Med9U6n5qqve75B8owWEKPMYRshRvL8tAA0xJY0bNXHq3JZLSVpKSuzPFALGz8c4ffNOUVjboXlrqFqg4mBMj7iaig-K2VzBxjAcYBPbXdpdCnBgNMHnkD7kbD4M-V3WExHiIm1woDMBdIx1EibdWKBfBihHfaTkyfA5Ife040ZKJJju4xV0YlXxMjDfOfbsbR6oD5olQtNLB4cvFMhkBWWv7kKwmD9E7YaKAZK8Rglc3dtH_OsZqJOhynvmzgdZLgq8hot6Lhe5YNfm7-ou5zIjxtCcpl0_WFkw1Yf3R7ZJxWVLno63s7-UgsoZYqX3P9CfE4ttQOVNxsAk9E2pT7r3f31oP6rW5eI1dWITWXji_U3x4vgX5ZGD9aDt7pYhb_VB9vWzKKBAfCpBlZVGDDRPYpRwbMRWchUnyWB5xUwMwvs_lkxiSbSdEHjKqadrGwdLkP24RmdjR8lV4NJgFUNwSG87qnpP9dQxghmuhSXIvgn-5dauZoNBzbdI2Yzqdk-kH50QjiQ"
+expires_in
+: 
+300
+refresh_token
+: 
+"def50200bb01659166124147d04f28f3002063e5a1f72ee80e6440f03dc54d4070abe67bf9c74a5788edb1e1e45c3e69e048c82c6fd3eb107b87e4b184e36b62208d3d0684ec25e084443686be4ba325b60c4ee6c9b3e3bc9fa2de9e19e53ba59e3cba85995fb3d2dd15fdfc07c1bc1e64ccc77277c13a2065c2961d3fc841ed26a0717752fa602e6b6652a153e0828b1816870844f8338d1e837ade7d44e1470fb6fcfa82c22c5307ee0d113cb5f037a7a119c50fca95de24c41cb0343e31f821b6b3a19d11d28dcbed0c2ef29d5d7713e4ab14f2690d4fd8d1dcf3c72ba2785fbf17075a0309337b3120795c72460411f97431f39d93bc1d1c782b01f8b592bb63e2b151e50937c9257514d6fb3ea368bb1ea701b57f9d5e2ac2d56533e252f38457027d4b145fe088e7ba8c9055bcf3ecabfde56102bf9027f6c205c01d7f53be3a7cd788d21020a83a9ef5312d450748930184380141f995c8d08545d5aac7d7"
+token_type
+: 
+"Bearer"

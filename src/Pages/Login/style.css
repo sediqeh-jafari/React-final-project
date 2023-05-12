@@ -1,0 +1,65 @@
+.parent_of_forme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+   
+}
+
+.form{
+    border: 2px solid rgb(127, 159, 168);
+    background-color: rgb(141, 203, 214);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 16px; */
+    font-size: larger;
+    border-radius: 16px;
+    gap: 10px;
+    width: 310px;
+    height: 270px;
+
+}
+input{
+    width: 260px;
+    border-radius: 8px;
+    margin-top: 8px;
+    height: 30px;
+}
+.form>.login{
+    width: 200px;
+    height: 30px;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+
+}
+label{
+    gap: 10px;
+}
+.header{
+    display: flex;
+    justify-content: flex-end;
+    font-size: larger;
+    
+}
+.text{
+    
+    margin: 10px  20px;
+    color: rgba(53, 53, 100, 0.618);
+}
+
+.Create_an_account{
+
+    text-decoration: none;
+    color: rgba(34, 46, 152, 0.992);
+    
+
+}
+.Create_an_account:hover{
+    text-decoration:underline;
+
+}

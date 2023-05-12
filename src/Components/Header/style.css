@@ -1,0 +1,48 @@
+.Header{
+    width: 100%;
+    height:auto;
+
+
+}
+.Genres{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.top_of_header{
+ text-align: center;
+ background-color: rgb(60, 60, 59);
+ height: 50px;
+ color: whitesmoke;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.Home_text{
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    line-height: 50px;
+    margin-left: 16px;
+}
+.login_text{
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    line-height: 50px;
+    margin-left: 16px;
+    
+}
+
+
+.serchquery{
+    width: 40%;
+    line-height: 50px;
+    height: 30px;
+    margin-right: 16px;
+    border-radius: 8px;
+    font-size: large;
+}
+

@@ -1,4 +1,11 @@
-.footer_text{
-    background-color: rgb(88, 86, 86);
-    height: 100px;
+#footer_text{
+    background-color: rgba(58, 58, 50, 0.929);
+
+
+    height: 60px;
+    margin-top: 160px ;
+    padding: 50px  60px;
+    margin: 0  auto;
+    text-align: center;
+    
 }

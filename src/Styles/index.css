@@ -30,6 +30,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-image: url(../picture/ee.jpg);
+	background-size: cover;
+    background-repeat: no-repeat;
+
 }
 ol, ul {
 	list-style: none;

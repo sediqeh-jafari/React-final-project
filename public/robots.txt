@@ -153,3 +153,131 @@ refresh_token
 token_type
 : 
 "Bearer"
+
+
+
+
+
+
+
+
+
+amirhoseym zgoFsP4Ny7Cs6JoLu16T_Glrpoe7IdUPh8u8Ks53DPO
+
+
+ // console.log(accesstoken);
+
+  // useEffect(() => {
+    //     const fetchuserdata = async () => {
+    //         const accesstoken = JSON.parse(localStorage.getItem('token'));
+
+    //                 // //
+
+    //         try {
+    //             const userresponse = await axios.get('/api/user', {
+    //                 headers: {
+    //                     authorization: accesstoken,
+    //                     "accept": "application/json"
+    //                 }
+    //             });
+    //             console.log(userresponse.data);
+
+
+    //             ///
+    //         } catch (error) {
+    //             if (error.response.status === 401) {
+    //                 const refreshtoken = JSON.parse(localStorage.getItem('refresh_token'));
+    //                 const formdata = new URLSearchParams();
+    //                 formdata.append('grant_type', 'refresh_token');
+    //                 formdata.append('refresh_token', refreshtoken);
+
+    //                     ///
+
+    //                 try {
+    //                     const response = await axios.post('http://moviesapi.ir/oauth/token',
+    //                         formdata,
+    //                         { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+    //                     );
+    //                     localStorage.setItem('token', JSON.stringify(`Bearer${response.data.access_token}`));
+    //                     localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh_token));
+
+    //                     ///
+    //                     const fetchuserdata = async () => {
+    //                         const accesstoken = response.data.access_token;
+
+
+    //                         ////
+    //                         try {
+    //                             const userresponse = await axios.get('/api/user', {
+    //                                 headers: {
+    //                                     authorization: accesstoken,
+    //                                     "accept": "application/json"
+    //                                 }
+    //                             });
+    //                             console.log(userresponse.data);
+
+    //                         }catch (error) {
+    //                             if (error.response.status === 401) {
+    //                                 const refreshtoken = JSON.parse(localStorage.getItem('refresh_token'));
+    //                                 const formdata = new URLSearchParams();
+    //                                 formdata.append('grant_type', 'refresh_token');
+    //                                 formdata.append('refresh_token', refreshtoken);
+    //                 }
+    //                 return error;
+    //                 }
+    //             return error;
+    //         } 
+
+    //         }
+
+    //         }
+
+    //     }
+
+
+
+
+    // }, [])
+    // useEffect(() => {
+    //     const fetchrequest = async () => {
+
+    //         const accesstoken = JSON.parse(localStorage.getItem('token'))
+
+    //         try {
+    //             const userResponse = await axios.get('/api/user', {
+    //                 headers: {
+    //                     authorization: accesstoken,
+    //                     "accept": "application/json"
+    //                 }
+    //             });
+    //             setresult(userResponse)
+    //             console.log(result);
+    //         } catch (error) {
+    //             console.log(error);
+    //             console.log('mmm');
+    //             if (error.response.status === 401) {
+    //                 const refreshtoken = JSON.parse(localStorage.getItem('refresh_token'));
+    //                 const formdata = new URLSearchParams();
+    //                 formdata.append('grant_type', 'refresh_token');
+    //                 formdata.append('refresh_token', refreshtoken);
+    //                 try {
+
+
+    //                     const response = await axios.post('http://moviesapi.ir/oauth/token',
+    //                         formdata,
+    //                         { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+    //                     );
+    //                     localStorage.setItem('token', JSON.stringify(`Bearer${response.data.access_token}`));
+    //                     localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh_token));
+    //                 } catch (error) {
+    //                     console.log(error)
+
+    //                 }
+    //             }
+
+
+
+    //         }
+    //     }
+    //     fetchrequest()
+    // }, []);

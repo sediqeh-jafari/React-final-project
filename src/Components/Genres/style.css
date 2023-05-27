@@ -1,12 +1,32 @@
 .names_of_genres{
-    border: 2px solid black;
-    
+    height: 50px;
+    border: 2px solid rgba(15, 6, 6, 0.76);
+    border-radius: 16px;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color:  rgb(17, 13, 13);
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    flex-direction: column;
+    font-size: larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(146, 139, 135, 0.816);
 }
-.parent_of_genrs{
-    width: 100%;
-    background-color:rgb(169, 162, 162);
+#parent_of_genrs{
+    width: 85%;
     height: auto;
     display: grid;
+    margin: 0 auto;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    color: rgba(237, 237, 237, 0.844);
+    font-size: large;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.box{
+    background-color: rgba(125, 125, 112, 0.342);
+    
 }

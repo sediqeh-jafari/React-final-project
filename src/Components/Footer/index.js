@@ -4,17 +4,22 @@ function Footer() {
 
     return (
         <>
-            <p className="footer_text">loreCompiled successfully!
+            <p id="footer_text">
 
-                You can now view my-app in the browser.
-
-                Local:            http://localhost:3000
-                On Your Network:  http://192.168.24.96:3000
-
-                Note that the development build is not optimized.
-                To create a production build, use npm run build.
-
-                webpack compiled successfully</p>
+                The Lorem Ipsum copy
+                The standard Lorem Ipsum passage is: Lorem
+                ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodoThe Lorem Ipsum copy
+                The standard Lorem Ipsum passage is: Lorem
+                ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo
+            </p>
 
         </>
     )

@@ -1,11 +1,10 @@
 import './style.css';
 import { useState, useEffect } from "react";
 import enahncedFetch from "../../Service/Http";
-import Main from '../Pagination25'
-import Header from '../Header'
+import Main from '../../Components/Pagination25'
 import { useNavigate } from 'react-router-dom';
-
-function Main2() {
+import SearchHeader from '../../Components/Searchheader';
+function Searchquery() {
     const Navigate = useNavigate()
     const [Data, setData] = useState([]);
     const [number, setNumber] = useState(1);
@@ -15,7 +14,6 @@ function Main2() {
 
 
     const Personol_Information = ` https://moviesapi.ir/api/v1/movies?q=${Name}&page=${number}`
-    const Genres = `https://moviesapi.ir/api/v1/genres`
 
 
     useEffect(() => {
@@ -35,47 +33,27 @@ function Main2() {
     }, [Personol_Information]);
 
 
-    const fetchrequest = async () => {
-        try {
-            setIsloading(true)
-            const response = await enahncedFetch('Get', Genres, Option)
-            setData(response)
-            console.log(Data);
-        } catch {
-            setHaserror(true)
-            setIsloading(false)
-        } finally {
-            setIsloading(false)
-            if (Data) {
-                return <div className='data_movies_card' key={Data.id}>
-
-                    <p>number:{Data.id}</p>
-                    <p>name : {Data.name}</p>
-                    <p>country is:{Data.country}</p>
-
-                </div>
-            }
-        }
-
-    }
+  
 
 
-    // const resultSearch = Data.filter((item) => item.title.toLowerCase().startsWith(Name.toLowerCase()));
     const render_list_of_movies = () => {
+        if (Isloading){
+            return <p id='Searchquery__isloading'>
+                <p id='cover__isloading'>Isloading</p>
+            </p>
+        }
         if (HasError) {
             return <p>errored</p>
+            
         }
-        if (Isloading) {
-            return <p className='isloading'>Isloading...</p>
-        }
+        
 
         return (
             Data.map((data) => {
-                return <div className='data_movies_card' key={data.id}>
+                return <div className='movies_card' key={data.id}>
 
                     <p>number:{data.id}</p>
                     <p>name : {data.title}</p>
-                    {/* <p>country is:{data.country}</p> */}
 
                 </div>
 
@@ -90,30 +68,44 @@ function Main2() {
 
 
     function handleChange(e) {
-        
+
         if (e.target.value === 0) {
             console.log('nothing');
             Navigate('/')
-        }else{
+        } else {
             setName(e.target.value)
-        console.log(Name);
+            console.log(Name);
         }
-    }
-    return (
-        <>
-            <Header />
-            <div className='parent'>
-                <input onChange={handleChange} className='serchquery' />
 
-                <div className='data_movies'>
-                    {render_list_of_movies()}
+    }
+    
+    return (
+
+
+        <>
+
+            <SearchHeader />
+            <div className='Searchquery'>
+                <div className='Searchquery_cover'>
+                    <label id='text_of_search_hear'>
+                        Search Here :
+
+                    </label>
+                    <br></br>
+                    <input onChange={handleChange} id='serchquery__input' />
+
+                    <div className='data_movies'>
+                        {render_list_of_movies()}
+                    </div>
+                    <Main Number={number} NewNumber={setNumber} />
                 </div>
 
-
             </div>
-            <Main Number={number} NewNumber={setNumber} />
 
         </>
+
+
+
     )
 }
-export default Main2
+export default Searchquery

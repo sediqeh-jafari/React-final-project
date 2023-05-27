@@ -1,10 +1,10 @@
 import Home from "../Pages/Home"
 import Movies from "../Pages/Movies"
 import SpecialGenres from "../Pages/SpecialGenres"
-import Main2 from "../Components/Main2"
 import Register from "../Pages/Register"
 import Login from "../Pages/Login"
 import Profile from "../Pages/Profile"
+import Searchquery from "../Pages/Searchquery"
 export const router = [
     {
         path: '/',
@@ -20,7 +20,7 @@ export const router = [
         element: <Movies/>
     }, {
         path: `/searchquery`,
-        element: <Main2/>
+        element: <Searchquery/>
     },
     {
         path: `/Register`,
@@ -33,7 +33,8 @@ export const router = [
     {
         path: `/Profile`,
         element: <Profile/>
-    },
+    }
+    ,
     {
         path: '*',
         element: <Home />

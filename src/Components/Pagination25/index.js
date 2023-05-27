@@ -39,7 +39,7 @@ function Main({hasError,load, Number, NewNumber }) {
 
     return (
 
-        <div className="parent_page_number">
+        <div className="parent_number">
 
             
             <button id='button' disabled={Number===1}   onClick={() => NextPage('before')}>before</button>

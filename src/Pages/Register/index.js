@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import './style.css'
 import { useNavigate } from 'react-router-dom';
-
 function Register() {
     const Navigate = useNavigate()
     const [name, setname] = useState('');
@@ -16,35 +15,39 @@ function Register() {
         }
     }
 
-    function handleSubmit(e) {
-
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        axios.post('https://moviesapi.ir/api/v1/register', {
-            name: name,
-            password: password,
-            email: email,
+        const formData = new URLSearchParams()
+        formData.append('name', name)
+        formData.append('email', email)
+        formData.append('password', password)
 
-        }).then((response) => {
-            console.log({ data: response.data });
-            
-        })
-        console.log({ name, password, email });
+        const request = {
+            method: 'POST',
+            url: 'https://moviesapi.ir/api/v1/register',
+            data: formData,
+            headers: {
+                "content-type": "application/x-www-form-urlencoded"
+            }
+
+        };
+        const response = await axios(request);
+        console.log(response);
         Navigate('/')
+
+
     }
-    
+
 
     return (
         <>
-            <div className="header">
-                <h2 className="text">Already have an account?</h2>
-                <Link className="sign_in" to={'/Login'}>Sign in</Link>
-            </div>
+
             <div className="parent_of_forme">
                 <form onSubmit={handleSubmit} className='form'>
 
                     <label>
-                        <p>UserName:</p>
+                        <p>Name:</p>
                         <input value={name} onChange={getHandler(setname)} type='text' placeholder="username.."></input>
                     </label>
                     <label>
@@ -56,7 +59,11 @@ function Register() {
                         <input value={email} onChange={getHandler(setemail)} type='text' placeholder="Email.."></input>
                     </label>
 
-                    <button className="login"  type="submit">sign up</button>
+                    <button className="login" type="submit">sign up</button>
+                    <div id="header">
+                        <h2 id="text">Already have an account?</h2>
+                        <Link id="sign_in" to={'/Login'}>Sign in</Link>
+                    </div>
                 </form>
 
             </div>

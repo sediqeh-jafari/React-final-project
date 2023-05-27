@@ -13,7 +13,6 @@ function HandleButtons() {
 
     return (
         <>
-            {/* <button>Profile</button> */}
             {handeler()}
 
         </>

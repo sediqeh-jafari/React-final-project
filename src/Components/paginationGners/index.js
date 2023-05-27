@@ -1,4 +1,4 @@
-
+import './style.css'
 function PaginationGners({hasError,load, Number, NewNumber,title}) {
     
    
@@ -42,7 +42,7 @@ function PaginationGners({hasError,load, Number, NewNumber,title}) {
 
             
             <button id='button' disabled={Number===1}   onClick={() => NextPage('before')}>before</button>
-            <h5>page:{Number}</h5>
+            <h5 id='h5'>page:{Number}</h5>
             <button id='button' disabled={Number==pages}  onClick={() =>NextPage('next')}>next</button>
      
          

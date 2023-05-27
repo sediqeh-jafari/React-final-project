@@ -1,0 +1,40 @@
+.movies_card_special{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+#between{
+    height: 500px;
+    width: 50px;
+    background-color: rgb(78, 84, 84);
+    position: absolute;
+    z-index: -2;
+    transform: translate(-160% ,-0%);
+}
+
+#poster{
+    border-radius: 28px;
+    height: 500px;
+    margin: 50px 0;
+    width: 600px;
+    z-index: -1;
+}
+#data{
+    margin-top: 35px;
+}
+
+.text_special_movie{
+    width: 400px;
+    height: 500px;
+    font-size: larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 30px;
+    border-radius: 28px;
+    text-align: justify;
+    padding:0   20px;
+    background-color: rgb(78, 84, 84);
+    z-index: -1.5;
+
+}

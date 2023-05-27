@@ -5,13 +5,12 @@ import enahncedFetch from '../../Service/Http';
 import PaginationGners from '../../Components/paginationGners';
 import Header from '../../Components/Header';
 import { Link } from "react-router-dom";
-import Footer from '../../Components/Footer';
 
 function SpecialGenres() {
     const { id } = useParams()
     const [Data, setData] = useState([]);
     const [number, setNumber] = useState(1);
-    const [PageCount, setPageCount]= useState([]);
+    const [PageCount, setPageCount] = useState([]);
     const [Isloading, setIsloading] = useState(false);
     const [HasError, setHaserror] = useState(false);
     console.log(id);
@@ -25,8 +24,6 @@ function SpecialGenres() {
                 const response = await enahncedFetch('Get', Personol_Information, Option)
                 setData(response.data)
                 setPageCount(response.metadata.page_count)
-                console.log(Data);
-                console.log(PageCount);
             } catch {
                 setHaserror(true)
                 setIsloading(false)
@@ -43,19 +40,25 @@ function SpecialGenres() {
             return <p>errored</p>
         }
         if (Isloading) {
-            return <p className='isloading'>Isloading...</p>
+            return <p className='parent_isloading' >
+
+                <p id='isloading'>Isloading...</p>
+
+            </p>
         }
 
         return (
             Data.map((data) => {
-                return <div className='data_movies_card' key={data.id}>
+                return <Link className='link_data' key={data.id} to={`/Movies/${data.id}`}>
 
-                    <Link to={`/Movies/${data.id}`}>hi</Link>
-                    <p>id:{data.id}</p>
-                    <p>name : {data.title}</p>
-                    <p>country is:{data.genres}</p>
-                    <p>page is: {PageCount}</p>
-                </div>
+                    <img id='img' src={data.poster}></img>
+                    <div id='text_gners'>
+                        <p>name : {data.title}</p>
+                        <p>Genrs is:{data.genres}</p>
+                    </div>
+
+                </Link>
+
 
 
 
@@ -69,13 +72,13 @@ function SpecialGenres() {
 
     return (
         <>
-        <Header/>
-        <div className='list_of_genrs'>
-        {render_list_of_movies()}
+            <Header />
+            <div className='list_of_genrs'>
+                {render_list_of_movies()}
 
-        </div>
-        <PaginationGners className='pagination' title={PageCount} Number={number} NewNumber={setNumber}/>
-        <Footer/>
+            </div>
+            <PaginationGners className='pagination' title={PageCount} Number={number} NewNumber={setNumber} />
+
         </>
     )
 }

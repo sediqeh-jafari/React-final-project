@@ -23,7 +23,6 @@ function Login() {
         formData.append("grant_type", "password");
         formData.append("username", username);
         formData.append("password", password);
-
         const requestOptions = {
             method: 'POST',
             url: 'https://moviesapi.ir/oauth/token',
@@ -33,9 +32,11 @@ function Login() {
             }
 
         };
+        console.log(requestOptions);
+
         const response = await axios(requestOptions);
         localStorage.setItem('token', JSON.stringify(`Bearer ${response.data.access_token}`))
-        localStorage.setItem('refresh_token', response.data.refresh_token)
+        localStorage.setItem('refresh_token', JSON.stringify(response.data.refresh_token))
         Navigate('/')
     }
     return (
@@ -45,12 +46,12 @@ function Login() {
                 <form className="form" onSubmit={handleSubmit}>
                     <label>
                         <p>UserName:</p>
-                        <input value={username} onChange={handleUsernamOnchange} type='text' placeholder="username"></input>
+                        <input value={username} onChange={handleUsernamOnchange} type='text' placeholder="username..."></input>
                     </label>
 
                     <label>
                         <p>PassWord:</p>
-                        <input value={password} onChange={handlePasswordOnchange} type='password' placeholder="password"></input>
+                        <input value={password} onChange={handlePasswordOnchange} type='password' placeholder="password..."></input>
                     </label>
 
                     <button className="login" type="submit">Log in</button>

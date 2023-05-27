@@ -1,12 +1,13 @@
 .main_section{
     height: 70vh;
 }
-.parent_page_number {
+.parent_number {
     display: flex;
     color: rgb(11, 18, 18);
     justify-content: center;
     gap: 5px;
     text-align: center;
+    margin: 20px  0;
 }
 
 .page_number {

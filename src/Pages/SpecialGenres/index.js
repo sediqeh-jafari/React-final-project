@@ -56,6 +56,7 @@ function SpecialGenres() {
                         <p>name : {data.title}</p>
                         <p>Genrs is:{data.genres}</p>
                     </div>
+                    <button id='link-data__button'>Click here</button>
 
                 </Link>
 

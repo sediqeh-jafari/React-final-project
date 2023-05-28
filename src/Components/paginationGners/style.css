@@ -1,5 +1,11 @@
 .parent_page_number{
-    margin-top: 0px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    top: 40px;
+    padding: 20px  ;
+
+    background-color: rgba(58, 58, 50, 0.929);
 }
 
 #h5{
